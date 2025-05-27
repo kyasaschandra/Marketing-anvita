@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 1vh;
+    background-color: hsl(44, 83%, 39%);
+}
+
+#navbar{
+    height: 10%;
+    background-color: hsl(0, 0%, 99%);
+    border-radius: 3px;
+}
+
+#logo{
+    position: relative;
+    left: 10px;
+}
