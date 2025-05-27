@@ -99,7 +99,7 @@ header ul li{
   margin-bottom: 10px;
 }
 
-@media only screen and (max-width:500px){
+@media only screen and (max-width:600px){
     header nav{
         display:none;
     }
@@ -108,3 +108,4 @@ header ul li{
     display: block;
   }
 }
+
