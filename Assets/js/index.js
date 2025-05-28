@@ -3,11 +3,6 @@ function toggleMobileMenu(menu) {
 }
 
 
-// Load YouTube API
-const tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-const firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 let players = {};
 let playersReady = 0;
@@ -199,7 +194,7 @@ function tryPauseVideo(playerId) {
         const currentState = player.getPlayerState();
         if (currentState === YT.PlayerState.PLAYING || currentState === YT.PlayerState.BUFFERING) {
             player.pauseVideo();
-            console.log(`Paused ${playerId}`);
+            // console.log(`Paused ${playerId}`);
         }
     } catch (error) {
         // console.error(`Error trying to pause ${playerId}:`, error);

@@ -195,6 +195,14 @@ header ul li {
   background-color: var(--preserve-color);
 }
 
+.video{
+  width:50%
+}
+
+.information{
+  width: 45%;
+}
+
 @media (max-width:600px) {
   header nav {
     display: none;
