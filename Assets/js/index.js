@@ -1,5 +1,6 @@
 function toggleMobileMenu(menu) {
     menu.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
 }
 
 
@@ -23,6 +24,11 @@ function onYouTubeIframeAPIReady() {
     
     // Initialize players for each YouTube container
     containers.forEach((container, index) => {
+        // Add loading indicator
+        const loader = document.createElement('div');
+        loader.className = 'video-loader';
+        container.appendChild(loader);
+        
         const videoId = container.dataset.videoId;
         const playerId = `youtube-player-${index}`;
         
@@ -265,4 +271,124 @@ document.addEventListener('DOMContentLoaded', () => {
             container.title = 'Click to play if autoplay fails';
         });
     }, 3000);
+});
+
+// Form handling
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Basic validation
+            if (!data.name || !data.email || !data.phone || !data.project || !data.message) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Phone validation (basic)
+            const phoneRegex = /^\+?[\d\s-]{10,}$/;
+            if (!phoneRegex.test(data.phone)) {
+                alert('Please enter a valid phone number');
+                return;
+            }
+            
+            // Show success message (in a real application, you would send this data to a server)
+            alert('Thank you for your message! We will get back to you shortly.');
+            contactForm.reset();
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Add intersection observer for animations
+    const animationObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.project, .contact-container').forEach(element => {
+        animationObserver.observe(element);
+    });
+});
+
+// Image loading handling
+document.addEventListener('DOMContentLoaded', () => {
+    // Lazy load project background images
+    const projects = document.querySelectorAll('.project');
+    projects.forEach(project => {
+        const backgroundImage = getComputedStyle(project.querySelector(':before')).backgroundImage;
+        if (backgroundImage && backgroundImage !== 'none') {
+            const img = new Image();
+            img.src = backgroundImage.slice(4, -1).replace(/"/g, '');
+            img.onload = () => {
+                project.classList.add('loaded');
+            };
+        }
+    });
+
+    // Handle logo images loading
+    const logos = document.querySelectorAll('.project-logo');
+    logos.forEach(logo => {
+        if (logo.complete) {
+            logo.classList.add('loaded');
+        } else {
+            logo.addEventListener('load', () => {
+                logo.classList.add('loaded');
+            });
+        }
+    });
+
+    // Handle image loading errors
+    const projectLogos = document.querySelectorAll('.project-logo');
+    projectLogos.forEach(logo => {
+        logo.onerror = function() {
+            this.onerror = null; // Prevent infinite loop
+            this.parentElement.innerHTML = `
+                <div class="logo-placeholder">
+                    <span>${this.alt || 'Project Logo'}</span>
+                </div>
+            `;
+        };
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (hamburgerIcon.classList.contains('open') &&
+            !hamburgerIcon.contains(e.target) &&
+            !mobileMenu.contains(e.target)) {
+            hamburgerIcon.classList.remove('open');
+            document.body.classList.remove('menu-open');
+        }
+    });
+
+    // Close menu when clicking a menu item
+    mobileMenu.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+            hamburgerIcon.classList.remove('open');
+            document.body.classList.remove('menu-open');
+        }
+    });
 });
