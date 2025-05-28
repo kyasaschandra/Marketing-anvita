@@ -152,7 +152,7 @@ header ul li {
   position: absolute;
   top: 50px;
   left: 0;
-  height: auto;
+  height: 50%;
   width: 100%;
   background-color: var(--header-color);
 }
