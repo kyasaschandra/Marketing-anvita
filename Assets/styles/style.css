@@ -1,14 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,900;1,700&display=swap');
 
 :root{
-  --primary-color: hsl(118, 70%, 47%);
-  --header-color: aliceblue;
-  --header-border-color: antiquewhite;
-  --ivana-color: hsl(0, 59%, 41%);
-  --high9-color: hsl(187, 72%, 42%);
-  --parkside-color: hsl(136, 77%, 18%);
-  --preserve-color: hsl(65, 61%, 51%);
-  --contact-color: hsl(252, 91%, 48%);
+  /* Main Theme Colors */
+  --primary-color: hsl(230, 48%, 47%);    /* Royal Blue - Primary brand color */
+  --header-color: hsl(0, 0%, 100%);       /* Pure White - Header background */
+  --header-border-color: hsl(230, 30%, 95%); /* Light Blue-Grey - Subtle borders */
+  
+  /* Project-specific Colors */
+  --ivana-color: hsl(350, 90%, 25%);      /* Deep Burgundy - Rich and distinctive */
+  --high9-color: hsl(195, 80%, 45%);      /* Ocean Blue */
+  --parkside-color: hsl(142, 76%, 36%);   /* Emerald Green */
+  --preserve-color: hsl(45, 93%, 47%);     /* Sunny Gold */
+  --contact-color: hsl(266, 85%, 58%);     /* Royal Purple */
+  
+  /* UI Enhancement Colors */
+  --text-primary: hsl(230, 25%, 25%);      /* Dark Blue-Grey - Main text */
+  --text-secondary: hsl(230, 20%, 45%);    /* Medium Blue-Grey - Secondary text */
+  --text-light: hsl(0, 0%, 100%);          /* White - Light text */
+  
+  /* Background Colors */
+  --bg-primary: hsl(230, 48%, 97%);        /* Light Blue-Grey - Primary background */
+  --bg-secondary: hsl(230, 44%, 95%);      /* Lighter Blue-Grey - Secondary background */
+  --bg-accent: hsl(230, 48%, 92%);         /* Subtle Blue-Grey - Accent background */
+  
+  /* Interactive Elements */
+  --hover-light: hsl(230, 48%, 94%);       /* Light hover state */
+  --hover-dark: hsl(230, 48%, 42%);        /* Dark hover state */
+  --active: hsl(230, 48%, 52%);            /* Active state */
+  
+  /* Feedback Colors */
+  --success-color: hsl(145, 80%, 42%);     /* Vibrant Green - Success */
+  --warning-color: hsl(45, 93%, 47%);      /* Amber - Warning */
+  --error-color: hsl(358, 75%, 45%);       /* Red - Error */
+  
+  /* Shadow Colors */
+  --shadow-light: hsla(230, 48%, 47%, 0.1);  /* Light shadow */
+  --shadow-medium: hsla(230, 48%, 47%, 0.15); /* Medium shadow */
+  --shadow-dark: hsla(230, 48%, 47%, 0.2);    /* Dark shadow */
 }
 
 * {
@@ -24,7 +52,7 @@ html {
 
 body {
   min-height: 100vh;
-  background-color: var(--primary-color);
+  background-color: var(--bg-primary);
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
 }
@@ -34,15 +62,16 @@ header a {
 }
 
 header {
-  padding: 0 20px;
   background-color: var(--header-color);
+  box-shadow: 0 2px 10px var(--shadow-light);
+  border-bottom: 1px solid var(--header-border-color);
+  padding: 0 20px;
   height: 60px;
   display: flex;
   justify-content: space-between;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -77,7 +106,7 @@ header ul {
 }
 
 header ul a {
-  color: rgb(0, 0, 0);
+  color: var(--text-primary);
   font-family: "Lato", sans-serif;
   font-weight: 700;
   font-style: italic;
@@ -108,6 +137,8 @@ header ul a {
 }
 
 header ul li {
+  background-color: var(--bg-secondary);
+  border: none;
   padding: 5px;
   margin-left: 5px;
   margin-right: 5px;
@@ -118,6 +149,13 @@ header ul li {
   border-color: var(--header-border-color);
   border-radius: 20px;
   text-align: center;
+  transition: all 0.3s ease;
+}
+
+header ul li:hover {
+  background-color: var(--hover-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px var(--shadow-light);
 }
 
 #hamburger-icon {
@@ -165,7 +203,7 @@ header ul li {
   height: 100vh;
   width: 100%;
   background-color: var(--header-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px var(--shadow-medium);
   padding: 20px;
   opacity: 0;
   transform: translateY(-10px);
@@ -174,8 +212,8 @@ header ul li {
 }
 
 .mobile-menu li {
-  width: 100%;
-  max-width: 300px;
+  background-color: var(--bg-secondary);
+  border: none;
   margin: 10px 0;
   padding: 10px;
   border-radius: 10px;
@@ -187,13 +225,12 @@ header ul li {
 }
 
 .mobile-menu li:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  background-color: var(--hover-light);
 }
 
 .mobile-menu a {
+  color: var(--text-primary);
   text-decoration: none;
-  color: black;
   font-size: 1.1rem;
   display: block;
   text-align: center;
@@ -220,13 +257,13 @@ body.menu-open {
   max-width: 1400px;
   margin: 40px auto;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px var(--shadow-medium);
   overflow: hidden;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   position: relative;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
 }
 
 .project::before {
@@ -248,15 +285,13 @@ body.menu-open {
     opacity: 1;
 }
 
-#ivana::before {
-    background-image: url(../images/ivana/ivana12.png);
-    @media (max-width: 768px) {
-        background-image: url(../images/ivana/image-1%20ivana.png);
-    }
+#ivana{
+     background-color: var(--ivana-color);
+    
 }
 
-#high9::before {
-    background-image: url(../images/high9/bg-4.jpg);
+#high9 {
+     background-color: var(--high9-color);
 }
 
 #parkside{
@@ -327,13 +362,11 @@ body.menu-open {
   min-height: 450px;
   flex: 1;
   min-width: 300px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: hsla(230, 48%, 100%, 0.1);
+  border: 1px solid hsla(230, 48%, 100%, 0.2);
   border-radius: 15px;
   padding: 25px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  box-shadow: 0 8px 32px var(--shadow-medium);
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -374,7 +407,8 @@ body.menu-open {
 .btn-view {
   margin-top: auto;
   align-self: center;
-  background: rgba(255, 255, 255, 0.15);
+  background: var(--primary-color);
+  color: var(--text-light);
   border: none;
   padding: 12px 30px;
   border-radius: 25px;
@@ -383,8 +417,7 @@ body.menu-open {
 }
 
 .btn-view:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.05);
+  background: var(--hover-dark);
 }
 
 .btn-view a {
@@ -467,10 +500,8 @@ body.menu-open {
 }
 
 .footer {
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: white;
+    background: var(--text-primary);
+    color: var(--text-light);
     padding: 40px 0 20px;
     margin-top: 40px;
 }
@@ -491,7 +522,7 @@ body.menu-open {
 }
 
 .footer-section h3 {
-    color: var(--primary-color);
+    color: var(--bg-secondary);
     font-size: 1.2rem;
     margin-bottom: 10px;
     font-family: "Lato", sans-serif;
@@ -565,12 +596,11 @@ body.menu-open {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: hsla(230, 48%, 100%, 0.1);
+    box-shadow: 0 8px 32px var(--shadow-dark);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    padding: 40px;
 }
 
 .contact-content {
@@ -603,10 +633,10 @@ body.menu-open {
 .form-group textarea {
     width: 100%;
     padding: 12px 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: hsla(230, 48%, 100%, 0.1);
+    border: 1px solid hsla(230, 48%, 100%, 0.2);
     border-radius: 10px;
-    color: white;
+    color: var(--text-light);
     font-size: 1rem;
     transition: all 0.3s ease;
 }
@@ -620,8 +650,8 @@ body.menu-open {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.4);
+    background: hsla(230, 48%, 100%, 0.15);
+    border-color: hsla(230, 48%, 100%, 0.4);
 }
 
 .form-group input::placeholder,
@@ -645,7 +675,7 @@ body.menu-open {
 .submit-btn {
     width: 100%;
     padding: 15px;
-    background: white;
+    background: var(--text-light);
     color: var(--primary-color);
     border: none;
     border-radius: 10px;
@@ -656,8 +686,8 @@ body.menu-open {
 }
 
 .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: var(--hover-light);
+    color: var(--hover-dark);
 }
 
 .contact-image {
@@ -747,6 +777,7 @@ body.menu-open {
 /* Define specific styles for each project's logo */
 #ivana .project-logo {
     filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
+    padding-left: 50px;
 }
 
 #high9 .project-logo {
@@ -938,7 +969,7 @@ body.menu-open {
 .form-group.error select,
 .form-group.error textarea {
     border-color: #ff6b6b;
-    background: rgba(255, 107, 107, 0.1);
+    background: hsla(255, 107, 107, 0.1);
 }
 
 .form-group.error .error-message {
@@ -950,5 +981,5 @@ body.menu-open {
 .form-group.success select,
 .form-group.success textarea {
     border-color: #51cf66;
-    background: rgba(81, 207, 102, 0.1);
+    background: hsla(145, 80%, 42%, 0.1);
 }
