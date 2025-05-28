@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,900;1,700&display=swap');
 
 :root{
-  --primary-color: hsl(44, 83%, 39%);
+  --primary-color: hsl(118, 70%, 47%);
   --header-color: aliceblue;
   --header-border-color: antiquewhite;
   --ivana-color: hsl(0, 59%, 41%);
@@ -172,7 +172,7 @@ header ul li {
 }
 
 .project{
-  height: 75vh;
+  height: 700px;
   width: 95vw;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -180,11 +180,19 @@ header ul li {
 }
 
 #ivana{
-  background-color: var(--ivana-color)
+  background-color: var(--ivana-color);
+  background-image: url(../images/ivana/ivana12.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #high9{
   background-color: var(--high9-color);
+  background-image: url(../images/high9/bg-4.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #parkside{
@@ -195,12 +203,150 @@ header ul li {
   background-color: var(--preserve-color);
 }
 
+.description{
+  padding: 20px;
+  width: 100%;
+  height: calc(100% - 80px); /* Accounting for project-title height */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.left{
+  flex-direction: row;
+}
+
+.right{
+  flex-direction: row-reverse;
+}
+
 .video{
-  width:50%
+  width: 48%;
+  height: 520px;
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 .information{
-  width: 45%;
+  width: 48%;
+  height: 520px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.information p {
+  color: white;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+  letter-spacing: 0.3px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.features-grid span {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  padding: 12px 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.features-grid span:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.btn-view {
+  margin-top: auto;
+  align-self: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-view:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.btn-view a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.project-logo {
+  height: 50px;
+  object-fit: contain;
+}
+
+.project-contact {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.project-contact ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-contact li {
+  transition: transform 0.3s ease;
+}
+
+.project-contact li:hover {
+  transform: translateX(5px);
+}
+
+.project-contact a {
+  text-decoration: none;
+  color: white;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-contact span::before {
+  content: "💬";
+  margin-right: 5px;
 }
 
 @media (max-width:600px) {
