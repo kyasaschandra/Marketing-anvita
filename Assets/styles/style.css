@@ -7,7 +7,7 @@
   --header-border-color: hsl(230, 30%, 95%); /* Light Blue-Grey - Subtle borders */
   
   /* Project-specific Colors */
-  --ivana-color: hsl(350, 90%, 25%);      /* Deep Burgundy - Rich and distinctive */
+  --ivana-color: hsl(350, 65%, 42%);      /* Deep Burgundy - Rich and distinctive */
   --high9-color: hsl(195, 80%, 45%);      /* Ocean Blue */
   --parkside-color: hsl(142, 76%, 36%);   /* Emerald Green */
   --preserve-color: hsl(45, 93%, 47%);     /* Sunny Gold */
@@ -330,7 +330,6 @@ body.menu-open {
   flex: 1;
   min-width: 300px;
   position: relative;
-  margin-left: 20px;
 }
 
 .video-loader {
