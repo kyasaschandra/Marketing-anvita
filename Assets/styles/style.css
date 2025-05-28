@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,900;1,700&display=swap');
 
+:root{
+  --primary-color: hsl(44, 83%, 39%);
+  --header-color: aliceblue;
+  --ivana-color: hsl(0, 59%, 41%);
+  --high9-color: hsl(187, 72%, 42%);
+  --parkside-color: hsl(136, 77%, 18%);
+  --preserve-color: hsl(65, 61%, 51%);
+  --contact-color: hsl(252, 91%, 48%);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -10,7 +20,7 @@
 body {
   min-height: 1vh;
   min-width: 1vw;
-  background-color: hsl(44, 83%, 39%);
+  background-color: var(--primary-color);
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -20,7 +30,7 @@ header a {
 
 header {
   padding: 0 20px;
-  background-color: hsl(208, 100%, 97%);
+  background-color: var(--header-color);
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -46,7 +56,7 @@ header {
   font-weight: 700;
   font-style: italic;
   font-size:xx-large;
-  color: hsl(44, 83%, 39%);
+  color: var(--primary-color);
 }
 
 header ul {
@@ -64,12 +74,28 @@ header ul a {
   font-style: italic;
 }
 
-.nav--link {
-  text-shadow: 1px 1px 3px hsl(130, 88%, 26%);
+#nav-contact {
+  text-shadow: 1px 1px 3px var(--contact-color)
 }
 
-#nav--contact {
-  text-shadow: 1px 1px 3px hsl(252, 91%, 48%);
+#nav-anvita{
+  text-shadow: 1px 1px 3px var(--primary-color);
+}
+
+#nav-ivana {
+  text-shadow: 1px 1px 3px var(--ivana-color)
+}
+
+#nav-high9{
+  text-shadow: 1px 1px 3px var(--high9-color);
+}
+
+#nav-parkside {
+  text-shadow: 1px 1px 3px var(--parkside-color);
+}
+
+#nav-preserve {
+  text-shadow: 1px 1px 3px var(--preserve-color);
 }
 
 header ul li {
@@ -80,7 +106,7 @@ header ul li {
   margin-bottom: 1px;
   border-width: 2px;
   border-style: ridge;
-  border-color: antiquewhite;
+  border-color: var(--header-color);
   border-radius: 20px;
   text-align: center;
 }
@@ -127,11 +153,45 @@ header ul li {
   left: 0;
   height: 30%;
   width: 100%;
-  background-color: aliceblue;
+  background-color: var(--header-color);
 }
 
 .mobile-menu li {
   margin-bottom: 10px;
+}
+
+#section--navbar{
+  margin-bottom: 5px;
+}
+
+#projects{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project{
+  height: 75vh;
+  width: 95vw;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+#ivana{
+  background-color: var(--ivana-color)
+}
+
+#high9{
+  background-color: var(--high9-color);
+}
+
+#parkside{
+  background-color: var(--parkside-color);
+}
+
+#preserve{
+  background-color: var(--preserve-color);
 }
 
 @media (max-width:600px) {
