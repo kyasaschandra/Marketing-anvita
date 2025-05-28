@@ -3,6 +3,7 @@
 :root{
   --primary-color: hsl(44, 83%, 39%);
   --header-color: aliceblue;
+  --header-border-color: antiquewhite;
   --ivana-color: hsl(0, 59%, 41%);
   --high9-color: hsl(187, 72%, 42%);
   --parkside-color: hsl(136, 77%, 18%);
@@ -106,7 +107,7 @@ header ul li {
   margin-bottom: 1px;
   border-width: 2px;
   border-style: ridge;
-  border-color: var(--header-color);
+  border-color: var(--header-border-color);
   border-radius: 20px;
   text-align: center;
 }
@@ -151,7 +152,7 @@ header ul li {
   position: absolute;
   top: 50px;
   left: 0;
-  height: 30%;
+  height: auto;
   width: 100%;
   background-color: var(--header-color);
 }
